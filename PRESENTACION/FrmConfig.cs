@@ -35,6 +35,8 @@ namespace PRESENTACION
 
 		private void FrmConfig_Load(object sender, EventArgs e)
 		{
+			this.MinimizeBox = true;
+
 			txtEstados.Visible = false;
 			MostrarEstados();
 		}
