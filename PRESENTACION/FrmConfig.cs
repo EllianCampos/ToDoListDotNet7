@@ -272,10 +272,10 @@ namespace PRESENTACION
             errorProvider1.Clear();
 
             // Validar si se selecciono un item del listbox
-            if (lsbEstados.SelectedItems.Count == 0)
+            if (lsbCategorias.SelectedItems.Count == 0)
             {
                 MessageBox.Show(
-                    "Selecciona un estado para editar",
+                    "Selecciona una categoria para editar",
                     "Acción requerida",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -284,11 +284,11 @@ namespace PRESENTACION
             }
 
             // Mostrar el campo de texto con el contenido
-            if (txtEstados.Visible == false)
+            if (txtCategorias.Visible == false)
             {
                 // Obtener el id del item seleccionado
-                int indiceSeleccionado = lsbEstados.SelectedIndex;
-                idEstadoEditando = listaEstados[indiceSeleccionado].IdEstado;
+                int indiceSeleccionado = lsbCategorias.SelectedIndex;
+                idCategoriaEditando = listaCategorias[indiceSeleccionado;
                 // Mostrar el nombre del item seleccionado
                 txtEstados.Visible = true;
                 txtEstados.Text = listaEstados[indiceSeleccionado].Nombre;
