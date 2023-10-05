@@ -15,14 +15,18 @@ namespace PRESENTACION
 	public partial class FrmConfig : Form
 	{
 		LogicaEstados logicaEstados = new LogicaEstados();
+		LogicaCategorias logicaCategorias = new LogicaCategorias();	
 		List<Estado> listaEstados;
+		List<Categoria> listaCategorias;
 		int idEstadoEditando = 0;
+		int idCategoriaEditando = 0;
 
 		public FrmConfig()
 		{
 			InitializeComponent();
 		}
 
+		// Mostrar estados
 		public void MostrarEstados()
 		{
 			lsbEstados.Items.Clear();
@@ -33,12 +37,25 @@ namespace PRESENTACION
 			}
 		}
 
+		// Mostrar categorias
+		public void MostrarCategorias()
+		{
+			lsbCategorias.Items.Clear();
+			listaCategorias = logicaCategorias.ObtenerCategorias();
+			foreach (Categoria categoria in listaCategorias)
+			{
+				lsbCategorias.Items.Add(categoria.Nombre);
+			}
+		}
+
 		private void FrmConfig_Load(object sender, EventArgs e)
 		{
 			this.MinimizeBox = true;
 
 			txtEstados.Visible = false;
+			txtCategorias.Visible = false;
 			MostrarEstados();
+			MostrarCategorias();
 		}
 
 		// Resetear cuando se da click en fondo
@@ -53,7 +70,7 @@ namespace PRESENTACION
 			}
 		}
 
-		// Agregar
+		// Agregar Estado
 		private void btnAgregarEstado_Click(object sender, EventArgs e)
 		{
 			errorProvider1.Clear();
@@ -98,7 +115,7 @@ namespace PRESENTACION
 			lsbEstados.Focus();
 		}
 
-		// Editar
+		// Editar Estado
 		private void btnEditarEstado_Click(object sender, EventArgs e)
 		{
 			errorProvider1.Clear();
@@ -162,7 +179,7 @@ namespace PRESENTACION
 			lsbEstados.Focus();
 		}
 
-		// Eliminar
+		// Eliminar Estado
 		private void btnEliminarEstado_Click(object sender, EventArgs e)
 		{
 			// Validar si se selecciono un item del listbox
@@ -204,6 +221,49 @@ namespace PRESENTACION
 			lsbEstados.Focus();
 		}
 
+		// Agregar Categoria
+		private void btnAgregarCategoria_Click(object sender, EventArgs e)
+		{
+			errorProvider1.Clear();
 
+			// Mostrar el campo de texto
+			if (txtCategorias.Visible == false)
+			{
+				txtCategorias.Visible = true;
+				txtCategorias.Focus();
+				return;
+			}
+
+			// Validar el campo de texto
+			if (txtCategorias.Text.Trim() == "")
+			{
+				MessageBox.Show(
+					"El Nombre no puede quedar en blanco",
+					"Campo requerido",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Warning
+				);
+				txtCategorias.Focus();
+				errorProvider1.SetError(txtCategorias, "Campo requerido");
+				return;
+			}
+
+			// Crear la nueva categoria
+			Respuesta respuesta = logicaEstados.CrearEstado(new Estado(txtCategorias.Text));
+
+			if (!respuesta.Resultado)
+			{
+				MessageBox.Show(respuesta.Mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				txtCategorias.Clear();
+				txtCategorias.Visible = false;
+				return;
+			}
+
+			// Pasos finales
+			txtCategorias.Clear();
+			txtCategorias.Visible = false;
+			MostrarCategorias();
+			txtCategorias.Focus();
+		}
 	}
 }

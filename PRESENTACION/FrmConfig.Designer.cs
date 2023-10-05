@@ -77,7 +77,7 @@
 			label2.Anchor = AnchorStyles.Top;
 			label2.AutoSize = true;
 			label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			label2.Location = new Point(244, 77);
+			label2.Location = new Point(235, 77);
 			label2.Name = "label2";
 			label2.Size = new Size(159, 16);
 			label2.TabIndex = 3;
@@ -89,7 +89,7 @@
 			lsbEstados.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
 			lsbEstados.FormattingEnabled = true;
 			lsbEstados.ItemHeight = 16;
-			lsbEstados.Location = new Point(244, 96);
+			lsbEstados.Location = new Point(235, 96);
 			lsbEstados.Name = "lsbEstados";
 			lsbEstados.Size = new Size(278, 84);
 			lsbEstados.TabIndex = 5;
@@ -98,7 +98,7 @@
 			// 
 			btnEliminarEstado.Anchor = AnchorStyles.Top;
 			btnEliminarEstado.Image = Properties.Resources.trash;
-			btnEliminarEstado.Location = new Point(494, 186);
+			btnEliminarEstado.Location = new Point(485, 186);
 			btnEliminarEstado.Name = "btnEliminarEstado";
 			btnEliminarEstado.Size = new Size(28, 28);
 			btnEliminarEstado.TabIndex = 6;
@@ -109,7 +109,7 @@
 			// 
 			btnAgregarEstado.Anchor = AnchorStyles.Top;
 			btnAgregarEstado.Image = Properties.Resources.add_circle;
-			btnAgregarEstado.Location = new Point(244, 185);
+			btnAgregarEstado.Location = new Point(235, 185);
 			btnAgregarEstado.Name = "btnAgregarEstado";
 			btnAgregarEstado.Size = new Size(28, 28);
 			btnAgregarEstado.TabIndex = 7;
@@ -121,7 +121,7 @@
 			label3.Anchor = AnchorStyles.Top;
 			label3.AutoSize = true;
 			label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			label3.Location = new Point(244, 261);
+			label3.Location = new Point(235, 261);
 			label3.Name = "label3";
 			label3.Size = new Size(178, 16);
 			label3.TabIndex = 8;
@@ -131,17 +131,18 @@
 			// 
 			btnAgregarCategoria.Anchor = AnchorStyles.Top;
 			btnAgregarCategoria.Image = Properties.Resources.add_circle;
-			btnAgregarCategoria.Location = new Point(244, 370);
+			btnAgregarCategoria.Location = new Point(235, 370);
 			btnAgregarCategoria.Name = "btnAgregarCategoria";
 			btnAgregarCategoria.Size = new Size(28, 28);
 			btnAgregarCategoria.TabIndex = 10;
 			btnAgregarCategoria.UseVisualStyleBackColor = true;
+			btnAgregarCategoria.Click += btnAgregarCategoria_Click;
 			// 
 			// btnEliminarCategoria
 			// 
 			btnEliminarCategoria.Anchor = AnchorStyles.Top;
 			btnEliminarCategoria.Image = Properties.Resources.trash;
-			btnEliminarCategoria.Location = new Point(494, 372);
+			btnEliminarCategoria.Location = new Point(485, 372);
 			btnEliminarCategoria.Name = "btnEliminarCategoria";
 			btnEliminarCategoria.Size = new Size(28, 28);
 			btnEliminarCategoria.TabIndex = 9;
@@ -151,7 +152,7 @@
 			// 
 			txtEstados.Anchor = AnchorStyles.Top;
 			txtEstados.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtEstados.Location = new Point(278, 188);
+			txtEstados.Location = new Point(269, 188);
 			txtEstados.Name = "txtEstados";
 			txtEstados.Size = new Size(159, 25);
 			txtEstados.TabIndex = 11;
@@ -164,7 +165,7 @@
 			// 
 			btnEditarEstado.Anchor = AnchorStyles.Top;
 			btnEditarEstado.Image = Properties.Resources.edit;
-			btnEditarEstado.Location = new Point(460, 186);
+			btnEditarEstado.Location = new Point(451, 186);
 			btnEditarEstado.Name = "btnEditarEstado";
 			btnEditarEstado.Size = new Size(28, 28);
 			btnEditarEstado.TabIndex = 12;
@@ -177,7 +178,7 @@
 			lsbCategorias.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
 			lsbCategorias.FormattingEnabled = true;
 			lsbCategorias.ItemHeight = 16;
-			lsbCategorias.Location = new Point(244, 280);
+			lsbCategorias.Location = new Point(235, 280);
 			lsbCategorias.Name = "lsbCategorias";
 			lsbCategorias.Size = new Size(278, 84);
 			lsbCategorias.TabIndex = 13;
@@ -186,7 +187,7 @@
 			// 
 			txtCategorias.Anchor = AnchorStyles.Top;
 			txtCategorias.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtCategorias.Location = new Point(278, 372);
+			txtCategorias.Location = new Point(269, 372);
 			txtCategorias.Name = "txtCategorias";
 			txtCategorias.Size = new Size(159, 25);
 			txtCategorias.TabIndex = 14;
@@ -195,7 +196,7 @@
 			// 
 			btnEditarCategoria.Anchor = AnchorStyles.Top;
 			btnEditarCategoria.Image = Properties.Resources.edit;
-			btnEditarCategoria.Location = new Point(460, 370);
+			btnEditarCategoria.Location = new Point(451, 370);
 			btnEditarCategoria.Name = "btnEditarCategoria";
 			btnEditarCategoria.Size = new Size(28, 28);
 			btnEditarCategoria.TabIndex = 15;
@@ -206,7 +207,7 @@
 			label1.Anchor = AnchorStyles.Top;
 			label1.AutoSize = true;
 			label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(233, 576);
+			label1.Location = new Point(224, 576);
 			label1.Name = "label1";
 			label1.Size = new Size(210, 16);
 			label1.TabIndex = 16;
