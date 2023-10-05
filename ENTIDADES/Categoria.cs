@@ -8,7 +8,7 @@ namespace ENTIDADES
 {
 	public class Categoria
 	{
-		public int IdEstado { get; set; }
+		public int IdCategoria { get; set; }
 		public string Nombre { get; set; }
 		public int Activo { get; set; }
 
@@ -17,15 +17,15 @@ namespace ENTIDADES
 			Nombre = nombre;
 		}
 
-		public Categoria(int idEstado, string nombre)
+		public Categoria(int idCategoria, string nombre)
 		{
-			IdEstado = idEstado;
+            IdCategoria = idCategoria;
 			Nombre = nombre;
 		}
 
-		public Categoria(int idEstado, string nombre, int activo)
+		public Categoria(int idCategoria, string nombre, int activo)
 		{
-			IdEstado = idEstado;
+            IdCategoria = idCategoria;
 			Nombre = nombre;
 			Activo = activo;
 		}
