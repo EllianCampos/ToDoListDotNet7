@@ -79,7 +79,7 @@ namespace LOGICA_NEGOCIO
 			foreach (DataRow dr in dt.Rows)
 			{
 				listaCategorias.Add(new Categoria(
-					Convert.ToInt32(dr["Id_Estado"]),
+					Convert.ToInt32(dr["Id_Categoria"]),
 					Convert.ToString(dr["Nombre"]),
 					Convert.ToInt32(dr["Activo"])
 				));
@@ -92,7 +92,7 @@ namespace LOGICA_NEGOCIO
 			cmd = new SQLiteCommand();
 			cmd.CommandText = "UPDATE categorias SET Nombre = @nombre WHERE Id_Categoria = @idCategoria";
 			cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
-			cmd.Parameters.AddWithValue("@idCategoria", categoria.IdEstado);
+			cmd.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
 			return datos.Ejecutar(cmd);
 		}
 
