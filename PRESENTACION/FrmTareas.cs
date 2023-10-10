@@ -60,8 +60,10 @@ namespace PRESENTACION
 
 		private void btnConfig_Click(object sender, EventArgs e)
 		{
+			this.Hide();
 			frmConfig.ShowDialog();
 			MostrarTareas();
+			this.Show();
 		}
 	}
 }
