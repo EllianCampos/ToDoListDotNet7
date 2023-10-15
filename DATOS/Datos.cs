@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Configuration;
+using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
 using System.Diagnostics;
@@ -7,22 +8,11 @@ namespace DATOS
 {
 	public class Datos
 	{
-		SQLiteConnection conn;
 		SQLiteDataAdapter dataAdapter;
 		DataTable dataTable;
 
-		public Datos()
-		{
-			// Ruta relativa desde la posicion actual
-			string databaseFilePath = Path.Combine("..", "..", "..", "..", "BASE_DE_DATOS", "ToDoListDB.db");
-
-			// Ruta absoluta
-			databaseFilePath = Path.GetFullPath(databaseFilePath);
-
-			databaseFilePath = databaseFilePath.Replace("\\", "/");
-
-			conn = new SQLiteConnection("Data Source=" + databaseFilePath);
-		}
+		private static string dbstring = ConfigurationManager.ConnectionStrings["dbstring"].ConnectionString;
+        SQLiteConnection conn = new SQLiteConnection(dbstring);
 
 		public bool Ejecutar(SQLiteCommand cmd)
 		{
