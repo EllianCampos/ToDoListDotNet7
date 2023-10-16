@@ -223,7 +223,7 @@
             Controls.Add(panel1);
             Name = "FrmConfig";
             Text = "Configuración";
-            WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Normal;
             Load += FrmConfig_Load;
             Click += FrmConfig_Click;
             panel1.ResumeLayout(false);
