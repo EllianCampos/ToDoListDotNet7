@@ -185,9 +185,9 @@
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(418, 21);
             label4.Name = "label4";
-            label4.Size = new Size(46, 17);
+            label4.Size = new Size(104, 17);
             label4.TabIndex = 4;
-            label4.Text = "Buscar";
+            label4.Text = "Buscar por título";
             // 
             // label2
             // 

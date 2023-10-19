@@ -85,7 +85,7 @@ namespace PRESENTACION
         private void FrmTareas_Load(object sender, EventArgs e)
         {
             CargarFiltros();
-            MostrarTareas();            
+            MostrarTareas();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -104,7 +104,7 @@ namespace PRESENTACION
             int idCategoria = listaCategorias[cbCategoria.SelectedIndex].IdCategoria;
 
             // Crear una nueva tarea
-            if (!logicaTareas.ActualizarTarea(new Tarea(idTarea, txtTitulo.Text, dtpFecha.Value,
+            if (!logicaTareas.ActualizarTarea(new Tarea(idTarea, txtTitulo.Text, dtpFecha.Value.Date,
                 idEstado, idCategoria, txtApuntes.Text)))
             {
                 MessageBox.Show("No se han podido guardar los cambios de la tarea", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

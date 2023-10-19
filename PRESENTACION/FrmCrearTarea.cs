@@ -84,7 +84,7 @@ namespace PRESENTACION
             int idCategoria = listaCategorias[cbCategoria.SelectedIndex].IdCategoria;
 
             // Crear una nueva tarea
-            if (!logicaTareas.CrearTarea(new Tarea(txtTitulo.Text, dtpFecha.Value,
+            if (!logicaTareas.CrearTarea(new Tarea(txtTitulo.Text, dtpFecha.Value.Date,
                 idEstado, idCategoria, txtApuntes.Text)))
             {
                 MessageBox.Show("No se ha podido crear la tarea", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
