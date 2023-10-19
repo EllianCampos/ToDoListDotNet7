@@ -42,9 +42,12 @@
             label2 = new Label();
             panel1 = new Panel();
             label1 = new Label();
-            button1 = new Button();
+            btnDescartar = new Button();
             btnEliminar = new Button();
             errorProvider1 = new ErrorProvider(components);
+            label4 = new Label();
+            label8 = new Label();
+            label9 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -99,6 +102,7 @@
             // cbCategoria
             // 
             cbCategoria.Anchor = AnchorStyles.Top;
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Location = new Point(143, 281);
@@ -109,6 +113,7 @@
             // cbEstado
             // 
             cbEstado.Anchor = AnchorStyles.Top;
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbEstado.FormattingEnabled = true;
             cbEstado.Location = new Point(143, 216);
@@ -179,7 +184,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
@@ -189,20 +193,20 @@
             label1.TabIndex = 1;
             label1.Text = "Editar una tarea";
             // 
-            // button1
+            // btnDescartar
             // 
-            button1.Anchor = AnchorStyles.Bottom;
-            button1.BackColor = Color.Orange;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(143, 525);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 30);
-            button1.TabIndex = 26;
-            button1.Text = "Descartar cambios";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnDescartar.Anchor = AnchorStyles.Bottom;
+            btnDescartar.BackColor = Color.Orange;
+            btnDescartar.FlatStyle = FlatStyle.Flat;
+            btnDescartar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDescartar.ForeColor = Color.White;
+            btnDescartar.Location = new Point(143, 525);
+            btnDescartar.Name = "btnDescartar";
+            btnDescartar.Size = new Size(150, 30);
+            btnDescartar.TabIndex = 26;
+            btnDescartar.Text = "Descartar cambios";
+            btnDescartar.UseVisualStyleBackColor = false;
+            btnDescartar.Click += btnDescartar_Click;
             // 
             // btnEliminar
             // 
@@ -223,13 +227,49 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(648, 89);
+            label4.Name = "label4";
+            label4.Size = new Size(13, 17);
+            label4.TabIndex = 29;
+            label4.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Red;
+            label8.Location = new Point(648, 219);
+            label8.Name = "label8";
+            label8.Size = new Size(13, 17);
+            label8.TabIndex = 30;
+            label8.Text = "*";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(648, 284);
+            label9.Name = "label9";
+            label9.Size = new Size(13, 17);
+            label9.TabIndex = 31;
+            label9.Text = "*";
+            // 
             // FrmEditarTarea
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label4);
             Controls.Add(btnEliminar);
-            Controls.Add(button1);
+            Controls.Add(btnDescartar);
             Controls.Add(btnGuardar);
             Controls.Add(txtApuntes);
             Controls.Add(label7);
@@ -244,7 +284,7 @@
             Controls.Add(panel1);
             Name = "FrmEditarTarea";
             Text = "Editar Tarea";
-            Load += FrmEditarTarea_Load_1;
+            Load += FrmEditarTarea_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
@@ -262,7 +302,7 @@
         private Label label2;
         private Panel panel1;
         private Label label1;
-        private Button button1;
+        private Button btnDescartar;
         private Button btnEliminar;
         public TextBox txtApuntes;
         public ComboBox cbCategoria;
@@ -270,5 +310,8 @@
         public DateTimePicker dtpFecha;
         public TextBox txtTitulo;
         private ErrorProvider errorProvider1;
+        private Label label4;
+        private Label label9;
+        private Label label8;
     }
 }

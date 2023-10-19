@@ -43,6 +43,10 @@
             txtApuntes = new TextBox();
             btnCrear = new Button();
             errorProvider1 = new ErrorProvider(components);
+            btnDescartar = new Button();
+            label4 = new Label();
+            label8 = new Label();
+            label9 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -116,6 +120,7 @@
             // 
             // cbCategoria
             // 
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Location = new Point(143, 275);
@@ -125,6 +130,7 @@
             // 
             // cbEstado
             // 
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbEstado.FormattingEnabled = true;
             cbEstado.Location = new Point(143, 210);
@@ -179,11 +185,63 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btnDescartar
+            // 
+            btnDescartar.Anchor = AnchorStyles.Bottom;
+            btnDescartar.BackColor = Color.Orange;
+            btnDescartar.FlatStyle = FlatStyle.Flat;
+            btnDescartar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDescartar.ForeColor = Color.White;
+            btnDescartar.Location = new Point(143, 519);
+            btnDescartar.Name = "btnDescartar";
+            btnDescartar.Size = new Size(100, 30);
+            btnDescartar.TabIndex = 27;
+            btnDescartar.Text = "Descartar";
+            btnDescartar.UseVisualStyleBackColor = false;
+            btnDescartar.Click += btnDescartar_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(648, 83);
+            label4.Name = "label4";
+            label4.Size = new Size(13, 17);
+            label4.TabIndex = 28;
+            label4.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Red;
+            label8.Location = new Point(648, 213);
+            label8.Name = "label8";
+            label8.Size = new Size(13, 17);
+            label8.TabIndex = 29;
+            label8.Text = "*";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(648, 278);
+            label9.Name = "label9";
+            label9.Size = new Size(13, 17);
+            label9.TabIndex = 30;
+            label9.Text = "*";
+            // 
             // FrmCrearTarea
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label4);
+            Controls.Add(btnDescartar);
             Controls.Add(btnCrear);
             Controls.Add(txtApuntes);
             Controls.Add(label7);
@@ -199,7 +257,6 @@
             Name = "FrmCrearTarea";
             Text = "Nueva Tarea";
             Load += FrmCrearTarea_Load;
-            Click += FrmCrearTarea_Click;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
@@ -223,5 +280,9 @@
         private TextBox txtApuntes;
         private Button btnCrear;
         private ErrorProvider errorProvider1;
+        private Button btnDescartar;
+        private Label label4;
+        private Label label9;
+        private Label label8;
     }
 }

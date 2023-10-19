@@ -36,7 +36,7 @@ namespace LOGICA_NEGOCIO
 						{
 							// Activar la categoria
 							cmd = new SQLiteCommand();
-							cmd.CommandText = "UPDATE FROM categorias SET Nombre Activo = 1 WHERE Nombre = @nombre";
+							cmd.CommandText = "UPDATE FROM Categorias SET ActivoCategoria = 1 WHERE Nombre = @nombre";
 							cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
 							if (datos.Ejecutar(cmd))
 							{
@@ -52,7 +52,7 @@ namespace LOGICA_NEGOCIO
 
 				// Crear la nueva categoria
 				cmd = new SQLiteCommand();
-				cmd.CommandText = "INSERT INTO categorias(Nombre, Activo) VALUES(@nombre, 1)";
+				cmd.CommandText = "INSERT INTO Categorias(NombreCategoria, ActivoCategoria) VALUES(@nombre, 1)";
 				cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
 				if (datos.Ejecutar(cmd))
 				{
@@ -72,16 +72,16 @@ namespace LOGICA_NEGOCIO
 		public List<Categoria> ObtenerCategorias()
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "SELECT Id_Categoria, Nombre, Activo FROM categorias WHERE Activo = 1";
+			cmd.CommandText = "SELECT * FROM categorias WHERE ActivoCategoria = 1";
 			DataTable dt = datos.Obtener(cmd);
 
 			List<Categoria> listaCategorias = new List<Categoria>();
 			foreach (DataRow dr in dt.Rows)
 			{
 				listaCategorias.Add(new Categoria(
-					Convert.ToInt32(dr["Id_Categoria"]),
-					Convert.ToString(dr["Nombre"]),
-					Convert.ToInt32(dr["Activo"])
+					Convert.ToInt32(dr["IdCategoria"]),
+					Convert.ToString(dr["NombreCategoria"]),
+					Convert.ToInt32(dr["ActivoCategoria"])
 				));
 			}
 			return listaCategorias;
@@ -90,17 +90,16 @@ namespace LOGICA_NEGOCIO
 		public bool ActualizarCategoria(Categoria categoria)
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE categorias SET Nombre = @nombre WHERE Id_Categoria = @idCategoria";
+			cmd.CommandText = "UPDATE Categorias SET NombreCategoria = @nombre WHERE IdCategoria = @idCategoria";
 			cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
 			cmd.Parameters.AddWithValue("@idCategoria", categoria.IdCategoria);
 			return datos.Ejecutar(cmd);
 		}
 
-
 		public bool EliminarCategoria(int id)
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE categorias SET Activo = 0 WHERE Id_Categoria = @idCategoria";
+			cmd.CommandText = "UPDATE Categorias SET Activo = 0 WHERE IdCategoria = @idCategoria";
 			cmd.Parameters.AddWithValue("@idCategoria", id);
 			return datos.Ejecutar(cmd);
 		}

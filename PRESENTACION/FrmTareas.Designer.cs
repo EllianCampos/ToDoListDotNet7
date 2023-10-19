@@ -34,9 +34,18 @@
             groupBox3 = new GroupBox();
             dgvTareas = new DataGridView();
             btnAgregar = new Button();
+            groupBox1 = new GroupBox();
+            chklbCategorias = new CheckedListBox();
+            btnLimpiar = new Button();
+            chklbEstados = new CheckedListBox();
+            txtBuscar = new TextBox();
+            label4 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTareas).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -71,6 +80,7 @@
             label1.Size = new Size(145, 20);
             label1.TabIndex = 1;
             label1.Text = "Gestor de tareas";
+            label1.Click += label1_Click;
             // 
             // groupBox3
             // 
@@ -78,12 +88,12 @@
             groupBox3.Controls.Add(dgvTareas);
             groupBox3.Controls.Add(btnAgregar);
             groupBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(12, 63);
+            groupBox3.Location = new Point(12, 230);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(760, 486);
+            groupBox3.Size = new Size(760, 319);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Filtros";
+            groupBox3.Text = "Tareas";
             // 
             // dgvTareas
             // 
@@ -94,14 +104,14 @@
             dgvTareas.Name = "dgvTareas";
             dgvTareas.RowTemplate.Height = 25;
             dgvTareas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTareas.Size = new Size(748, 424);
+            dgvTareas.Size = new Size(748, 257);
             dgvTareas.TabIndex = 10;
             dgvTareas.CellDoubleClick += dgvTareas_CellDoubleClick;
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAgregar.Location = new Point(679, 454);
+            btnAgregar.Location = new Point(679, 287);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 26);
             btnAgregar.TabIndex = 9;
@@ -109,11 +119,102 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(chklbCategorias);
+            groupBox1.Controls.Add(btnLimpiar);
+            groupBox1.Controls.Add(chklbEstados);
+            groupBox1.Controls.Add(txtBuscar);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(12, 63);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(760, 161);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Filtros";
+            // 
+            // chklbCategorias
+            // 
+            chklbCategorias.FormattingEnabled = true;
+            chklbCategorias.Location = new Point(212, 41);
+            chklbCategorias.Name = "chklbCategorias";
+            chklbCategorias.Size = new Size(200, 104);
+            chklbCategorias.TabIndex = 11;
+            chklbCategorias.MouseClick += chklbCategorias_MouseClick;
+            chklbCategorias.SelectedValueChanged += chklbCategorias_SelectedValueChanged;
+            chklbCategorias.MouseDoubleClick += chklbCategorias_MouseDoubleClick;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.Location = new Point(418, 72);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(336, 33);
+            btnLimpiar.TabIndex = 2;
+            btnLimpiar.Text = "Limpiar filtros";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // chklbEstados
+            // 
+            chklbEstados.FormattingEnabled = true;
+            chklbEstados.Location = new Point(6, 41);
+            chklbEstados.Name = "chklbEstados";
+            chklbEstados.Size = new Size(200, 104);
+            chklbEstados.TabIndex = 10;
+            chklbEstados.MouseClick += chklbEstados_MouseClick;
+            chklbEstados.SelectedValueChanged += chklbEstados_SelectedValueChanged;
+            chklbEstados.MouseDoubleClick += chklbEstados_MouseDoubleClick;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscar.Location = new Point(418, 41);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(336, 25);
+            txtBuscar.TabIndex = 7;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(418, 21);
+            label4.Name = "label4";
+            label4.Size = new Size(46, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Buscar";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(20, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(48, 17);
+            label2.TabIndex = 2;
+            label2.Text = "Estado";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(219, 21);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 17);
+            label3.TabIndex = 3;
+            label3.Text = "Categoría";
+            // 
             // FrmTareas
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(groupBox1);
             Controls.Add(groupBox3);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -124,6 +225,8 @@
             panel1.PerformLayout();
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvTareas).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -135,5 +238,13 @@
         private DataGridView dgvTareas;
         private Button btnAgregar;
         private Button btnConfig;
+        private GroupBox groupBox1;
+        private Button btnLimpiar;
+        private TextBox txtBuscar;
+        private Label label4;
+        private Label label2;
+        private Label label3;
+        private CheckedListBox chklbEstados;
+        private CheckedListBox chklbCategorias;
     }
 }

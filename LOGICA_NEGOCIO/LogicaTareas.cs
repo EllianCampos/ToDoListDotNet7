@@ -11,60 +11,82 @@ namespace LOGICA_NEGOCIO
 	{
 		Datos datos = new Datos();
 
-		public string TestDBConnection()
-		{
-			SQLiteCommand cmd = new SQLiteCommand();
-			cmd.CommandText = "SELECT date('now');";
-			DataTable dt = new DataTable();
-			return dt.ToString();
-		}
-
 		public bool CrearTarea(Tarea tarea)
 		{
 			SQLiteCommand cmd = new SQLiteCommand();
-			cmd.CommandText = "INSERT INTO tareas(Titulo, Fecha, Estado, Categoria, " +
-				"Apuntes) VALUES(@titulo, @fecha, @estado, @categoria, @apuntes)";
+			cmd.CommandText = "INSERT INTO Tareas(TituloTarea, FechaTarea, IdEstado, IdCategoria, " +
+				"ApuntesTarea) VALUES(@titulo, @fecha, @idEstado, @idCategoria, @apuntes)";
 			cmd.Parameters.AddWithValue("@titulo", tarea.Titulo);
 			cmd.Parameters.AddWithValue("@fecha", tarea.Fecha);
-			cmd.Parameters.AddWithValue("@estado", tarea.Estado);
-			cmd.Parameters.AddWithValue("@categoria", tarea.Categoria);
+			cmd.Parameters.AddWithValue("@idEstado", tarea.IdEstado);
+			cmd.Parameters.AddWithValue("@idCategoria", tarea.IdCategoria);
 			cmd.Parameters.AddWithValue("@apuntes", tarea.Apuntes);
 
 			return datos.Ejecutar(cmd);
 		}
 
-		public List<Tarea> ObtenerTareas()
+		public List<TareaMostrar> ObtenerTareas()
 		{
 			SQLiteCommand cmd = new SQLiteCommand();
-			cmd.CommandText = "SELECT * FROM tareas";
+			cmd.CommandText = "SELECT * FROM Tareas t, Categorias c, Estados e WHERE t.IdCategoria = c.IdCategoria AND t.IdEstado = e.IdEstado";
 			DataTable dt = datos.Obtener(cmd);
 
-			List<Tarea> listaTareas = new List<Tarea>();
+			List<TareaMostrar> listaTareas = new List<TareaMostrar>();
 			foreach (DataRow row in dt.Rows)
 			{
-				listaTareas.Add(new Tarea(
-						Convert.ToInt32(row["Id_Tarea"]),
-						Convert.ToString(row["Titulo"]),
-						Convert.ToDateTime(row["Fecha"]),
-						Convert.ToString(row["Estado"]),
-						Convert.ToString(row["Categoria"]),
-						Convert.ToString(row["Apuntes"])
+				listaTareas.Add(new TareaMostrar(
+						Convert.ToInt32(row["IdTarea"]),
+						Convert.ToString(row["TituloTarea"]),
+						Convert.ToDateTime(row["FechaTarea"]),
+						Convert.ToString(row["NombreEstado"]),
+						Convert.ToString(row["NombreCategoria"]),
+						Convert.ToString(row["ApuntesTarea"])
 					));
 			}
 			return listaTareas;
 		}
 
-		public bool ActualizarTarea(Tarea tarea)
+        public Tarea ObtenerTarea(int id)
+		{
+			// Obtener la tarea
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.CommandText = "SELECT * FROM Tareas WHERE IdTarea = @idTarea";
+			cmd.Parameters.AddWithValue("@idTarea", id);
+            DataTable dt = datos.Obtener(cmd);
+
+			// Validar si encontro la tarea
+			if (dt.Rows.Count == 0) 
+			{ 
+				return new Tarea(); 
+			}
+
+			// Crear el objeto tarea
+			DataRow row = dt.Rows[0];
+			Tarea tarea = new Tarea
+			{
+				IdTarea = id,
+				Titulo = row["TituloTarea"].ToString(),
+				Fecha = Convert.ToDateTime(row["FechaTarea"]),
+				IdEstado = Convert.ToInt32(row["IdEstado"]),
+				IdCategoria = Convert.ToInt32(row["IdCategoria"]),
+				Apuntes = row["ApuntesTarea"].ToString()
+			};
+
+			return tarea;
+        }
+
+
+        public bool ActualizarTarea(Tarea tarea)
 		{
 			SQLiteCommand cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE tareas SET Titulo = @titulo, Fecha = @fecha, " +
-				"Estado = @estado, Categoria = @categoria, Apuntes = @apuntes " +
-				"WHERE Id_Tarea = @idtarea";
+			cmd.CommandText = "UPDATE Tareas SET TituloTarea = @titulo, FechaTarea = @fecha, " +
+                "IdEstado = @idEstado, IdCategoria = @idCategoria, ApuntesTarea = @apuntes " +
+				"WHERE IdTarea = @idtarea";
 			cmd.Parameters.AddWithValue("@titulo", tarea.Titulo);
 			cmd.Parameters.AddWithValue("@fecha", tarea.Fecha);
-			cmd.Parameters.AddWithValue("@estado", tarea.Estado);
-			cmd.Parameters.AddWithValue("@categoria", tarea.Categoria);
-			cmd.Parameters.AddWithValue("@apuntes", tarea.Apuntes);
+            cmd.Parameters.AddWithValue("@idEstado", tarea.IdEstado);
+            cmd.Parameters.AddWithValue("@idCategoria", tarea.IdCategoria);
+            cmd.Parameters.AddWithValue("@apuntes", tarea.Apuntes);
 			cmd.Parameters.AddWithValue("@idtarea", tarea.IdTarea);
 
 			return datos.Ejecutar(cmd);
@@ -73,7 +95,7 @@ namespace LOGICA_NEGOCIO
 		public bool EliminarTarea(int idTarea)
 		{
 			SQLiteCommand cmd = new SQLiteCommand();
-			cmd.CommandText = "DELETE FROM tareas WHERE Id_Tarea = @idTarea";
+			cmd.CommandText = "DELETE FROM Tareas WHERE IdTarea = @idTarea";
 			cmd.Parameters.AddWithValue("@idTarea", idTarea);
 
 			return datos.Ejecutar(cmd);

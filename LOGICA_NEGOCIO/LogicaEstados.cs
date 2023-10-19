@@ -36,7 +36,7 @@ namespace LOGICA_NEGOCIO
 						{
 							// Activar el estado
 							cmd = new SQLiteCommand();
-							cmd.CommandText = "UPDATE FROM estados SET Nombre Activo = 1 WHERE Nombre = @nombre";
+							cmd.CommandText = "UPDATE FROM Estados SET Activo = 1 WHERE NombreEstado = @nombre";
 							cmd.Parameters.AddWithValue("@nombre", estado.Nombre);
 							if (datos.Ejecutar(cmd))
 							{
@@ -52,7 +52,7 @@ namespace LOGICA_NEGOCIO
 
 				// Crear el nuevo estado
 				cmd = new SQLiteCommand();
-				cmd.CommandText = "INSERT INTO estados(Nombre, Activo) VALUES(@nombre, 1)";
+				cmd.CommandText = "INSERT INTO Estados(NombreEstado, ActivoEstado) VALUES(@nombre, 1)";
 				cmd.Parameters.AddWithValue("@nombre", estado.Nombre);
 				if (datos.Ejecutar(cmd))
 				{
@@ -72,16 +72,16 @@ namespace LOGICA_NEGOCIO
 		public List<Estado> ObtenerEstados()
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "SELECT Id_Estado, Nombre, Activo FROM estados WHERE Activo = 1";
+			cmd.CommandText = "SELECT * FROM estados WHERE ActivoEstado = 1";
 			DataTable dt = datos.Obtener(cmd);
 
 			List<Estado> listaEstados = new List<Estado>();	
 			foreach (DataRow dr in dt.Rows)
 			{
 				listaEstados.Add(new Estado(
-					Convert.ToInt32(dr["Id_Estado"]), 
-					Convert.ToString(dr["Nombre"]),
-					Convert.ToInt32(dr["Activo"])
+					Convert.ToInt32(dr["IdEstado"]), 
+					Convert.ToString(dr["NombreEstado"]),
+					Convert.ToInt32(dr["ActivoEstado"])
 				));
 			}
 			return listaEstados;
@@ -90,17 +90,16 @@ namespace LOGICA_NEGOCIO
 		public bool ActualizarEstado(Estado estado)
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE estados SET Nombre = @nombre WHERE Id_Estado = @idEstado";
+			cmd.CommandText = "UPDATE Estados SET NombreEstado = @nombre WHERE IdEstado = @idEstado";
 			cmd.Parameters.AddWithValue("@nombre", estado.Nombre);
 			cmd.Parameters.AddWithValue("@idEstado", estado.IdEstado);
 			return datos.Ejecutar(cmd);
 		}
 
-
 		public bool EliminarEstado(int id)
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE estados SET Activo = 0 WHERE Id_Estado = @idEstado";
+			cmd.CommandText = "UPDATE Estados SET ActivoEstado = 0 WHERE IdEstado = @idEstado";
 			cmd.Parameters.AddWithValue ("@idEstado", id);	
 			return datos.Ejecutar(cmd);	
 		}

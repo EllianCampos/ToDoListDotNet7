@@ -35,6 +35,18 @@ namespace PRESENTACION
                 errorFlag = true;
             }
 
+            if (cbEstado.Text.Equals(""))
+            {
+                errorProvider1.SetError(cbEstado, "Campo requerido");
+                errorFlag = true;
+            }
+
+            if (cbCategoria.Text.Equals(""))
+            {
+                errorProvider1.SetError(cbCategoria, "Campos requerido");
+                errorFlag = true;
+            }
+
             if (errorFlag) { return true; } else { return false; }
         }
 
@@ -49,9 +61,11 @@ namespace PRESENTACION
 
         private void FrmCrearTarea_Load(object sender, EventArgs e)
         {
+            cbEstado.Items.Clear();
             foreach (Estado estado in logicaEstados.ObtenerEstados())
                 cbEstado.Items.Add(estado.Nombre);
 
+            cbCategoria.Items.Clear();
             foreach (Categoria categoria in logicaCategorias.ObtenerCategorias())
                 cbCategoria.Items.Add(categoria.Nombre);
         }
@@ -61,9 +75,17 @@ namespace PRESENTACION
             // Validar campos
             if (ValidarCampos()) return;
 
+            // Obtener el ID del estado
+            List<Estado> listaEstados = logicaEstados.ObtenerEstados();
+            int idEstado = listaEstados[cbEstado.SelectedIndex].IdEstado;
+
+            // Obtener el ID de la categoría
+            List<Categoria> listaCategorias = logicaCategorias.ObtenerCategorias();
+            int idCategoria = listaCategorias[cbCategoria.SelectedIndex].IdCategoria;
+
             // Crear una nueva tarea
             if (!logicaTareas.CrearTarea(new Tarea(txtTitulo.Text, dtpFecha.Value,
-                cbEstado.Text, cbCategoria.Text, txtApuntes.Text)))
+                idEstado, idCategoria, txtApuntes.Text)))
             {
                 MessageBox.Show("No se ha podido crear la tarea", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -73,12 +95,10 @@ namespace PRESENTACION
             this.Close();
         }
 
-        private void FrmCrearTarea_Click(object sender, EventArgs e)
+        private void btnDescartar_Click(object sender, EventArgs e)
         {
-            foreach (var item in logicaEstados.ObtenerEstados())
-            {
-                MessageBox.Show("ahhh" + item);
-            }
+            LimpiarCampos();
+            this.Close();
         }
     }
 }
