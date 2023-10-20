@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTareas));
             panel1 = new Panel();
             btnConfig = new Button();
             label1 = new Label();
@@ -218,6 +219,7 @@
             Controls.Add(groupBox3);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmTareas";
             Text = "Mis Tareas";
             Load += FrmTareas_Load;

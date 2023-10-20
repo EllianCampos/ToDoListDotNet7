@@ -148,7 +148,7 @@ namespace PRESENTACION
                 // Obtener el id del item seleccionado
                 int indiceSeleccionado = lsbEstados.SelectedIndex;
                 idEstadoEditando = listaEstados[indiceSeleccionado].IdEstado;
-                
+
                 // Mostrar el nombre del item seleccionado
                 txtEstados.Visible = true;
                 txtEstados.Text = listaEstados[indiceSeleccionado].Nombre;

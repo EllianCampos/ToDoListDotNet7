@@ -85,7 +85,7 @@ namespace PRESENTACION
             {
                 if (categoria.IdCategoria == tarea.IdCategoria)
                 {
-                    cbCategoria.SelectedIndex = listaCategorias.IndexOf(categoria); 
+                    cbCategoria.SelectedIndex = listaCategorias.IndexOf(categoria);
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace PRESENTACION
 
         private void FrmEditarTarea_Load(object sender, EventArgs e)
         {
-            
+
 
             cbEstado.Items.Clear();
             foreach (Estado estado in logicaEstados.ObtenerEstados())

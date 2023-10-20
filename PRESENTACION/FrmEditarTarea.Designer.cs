@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarTarea));
             btnGuardar = new Button();
             txtApuntes = new TextBox();
             label7 = new Label();
@@ -282,6 +283,7 @@
             Controls.Add(txtTitulo);
             Controls.Add(label2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmEditarTarea";
             Text = "Editar Tarea";
             Load += FrmEditarTarea_Load;

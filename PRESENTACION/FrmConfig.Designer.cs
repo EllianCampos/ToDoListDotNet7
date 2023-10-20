@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfig));
             panel1 = new Panel();
             lblTitulo = new Label();
             label2 = new Label();
@@ -221,9 +222,9 @@
             Controls.Add(lsbEstados);
             Controls.Add(label2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmConfig";
             Text = "Configuración";
-            WindowState = FormWindowState.Normal;
             Load += FrmConfig_Load;
             Click += FrmConfig_Click;
             panel1.ResumeLayout(false);
