@@ -99,7 +99,7 @@ namespace LOGICA_NEGOCIO
 		public bool EliminarCategoria(int id)
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "UPDATE Categorias SET Activo = 0 WHERE IdCategoria = @idCategoria";
+			cmd.CommandText = "UPDATE Categorias SET ActivoCategoria = 0 WHERE IdCategoria = @idCategoria";
 			cmd.Parameters.AddWithValue("@idCategoria", id);
 			return datos.Ejecutar(cmd);
 		}
