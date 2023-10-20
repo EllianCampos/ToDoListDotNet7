@@ -106,6 +106,7 @@ namespace PRESENTACION
             this.Hide();
             frmConfig.ShowDialog();
             MostrarTareas();
+            CargarFiltros();
             this.Show();
         }
 
