@@ -10,14 +10,14 @@ namespace ENTIDADES
     {
         public int IdTarea { get; set; }
         public string Titulo { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Fecha { get; set; }
         public string Estado { get; set; }
         public string Categoria { get; set; }
         public string Apuntes { get; set; }
 
         public TareaMostrar() { }
 
-        public TareaMostrar(int idTarea, string titulo, DateTime fecha, string estado, string categoria, string apuntes)
+        public TareaMostrar(int idTarea, string titulo, string fecha, string estado, string categoria, string apuntes)
         {
             IdTarea = idTarea;
             Titulo = titulo;

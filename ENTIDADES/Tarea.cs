@@ -4,7 +4,7 @@
 	{
 		public int IdTarea { get; set; }
 		public string Titulo { get; set; }
-		public DateTime Fecha { get; set; }
+		public string Fecha { get; set; }
 		public int IdEstado { get; set; }
 		public int IdCategoria { get; set; }
 		public string Apuntes { get; set; }
@@ -12,7 +12,7 @@
 		public Tarea () { }
 
 		// Constructor crear tarea
-		public Tarea(string titulo, DateTime fecha, int idEstado, int idCategoria, string apuntes)
+		public Tarea(string titulo, string fecha, int idEstado, int idCategoria, string apuntes)
 		{
 			this.Titulo = titulo;
 			this.Fecha = fecha;
@@ -22,7 +22,7 @@
 		}
 
 		// Constructor
-		public Tarea(int idTarea, string titulo, DateTime fecha, int idEstado, int idCategoria, string apuntes)
+		public Tarea(int idTarea, string titulo, string fecha, int idEstado, int idCategoria, string apuntes)
 		{
 			this.IdTarea = idTarea;
 			this.Titulo = titulo;

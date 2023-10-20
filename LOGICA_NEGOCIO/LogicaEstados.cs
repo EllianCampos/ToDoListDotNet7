@@ -72,7 +72,7 @@ namespace LOGICA_NEGOCIO
 		public List<Estado> ObtenerEstados()
 		{
 			cmd = new SQLiteCommand();
-			cmd.CommandText = "SELECT * FROM estados WHERE ActivoEstado = 1";
+			cmd.CommandText = "SELECT * FROM Estados WHERE ActivoEstado = 1";
 			DataTable dt = datos.Obtener(cmd);
 
 			List<Estado> listaEstados = new List<Estado>();	

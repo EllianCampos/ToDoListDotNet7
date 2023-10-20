@@ -37,7 +37,7 @@ namespace LOGICA_NEGOCIO
 				listaTareas.Add(new TareaMostrar(
 						Convert.ToInt32(row["IdTarea"]),
 						Convert.ToString(row["TituloTarea"]),
-						Convert.ToDateTime(row["FechaTarea"]),
+                        Convert.ToString(row["FechaTarea"]),
 						Convert.ToString(row["NombreEstado"]),
 						Convert.ToString(row["NombreCategoria"]),
 						Convert.ToString(row["ApuntesTarea"])
@@ -66,7 +66,7 @@ namespace LOGICA_NEGOCIO
 			{
 				IdTarea = id,
 				Titulo = row["TituloTarea"].ToString(),
-				Fecha = Convert.ToDateTime(row["FechaTarea"]),
+				Fecha = Convert.ToString(row["FechaTarea"]),
 				IdEstado = Convert.ToInt32(row["IdEstado"]),
 				IdCategoria = Convert.ToInt32(row["IdCategoria"]),
 				Apuntes = row["ApuntesTarea"].ToString()
