@@ -64,6 +64,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
@@ -75,6 +76,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(142, 60);
@@ -85,6 +87,7 @@
             // 
             // txtTitulo
             // 
+            txtTitulo.Anchor = AnchorStyles.Top;
             txtTitulo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitulo.Location = new Point(142, 80);
             txtTitulo.Name = "txtTitulo";
@@ -93,6 +96,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(142, 125);
@@ -103,6 +107,7 @@
             // 
             // dtpFecha
             // 
+            dtpFecha.Anchor = AnchorStyles.Top;
             dtpFecha.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             dtpFecha.Location = new Point(142, 145);
             dtpFecha.Name = "dtpFecha";
@@ -111,6 +116,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(143, 190);
@@ -121,6 +127,7 @@
             // 
             // cbCategoria
             // 
+            cbCategoria.Anchor = AnchorStyles.Top;
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategoria.FormattingEnabled = true;
@@ -131,6 +138,7 @@
             // 
             // cbEstado
             // 
+            cbEstado.Anchor = AnchorStyles.Top;
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbEstado.FormattingEnabled = true;
@@ -141,6 +149,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(143, 255);
@@ -151,6 +160,7 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(143, 320);
@@ -161,6 +171,7 @@
             // 
             // txtApuntes
             // 
+            txtApuntes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             txtApuntes.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtApuntes.Location = new Point(143, 340);
             txtApuntes.Multiline = true;
@@ -170,6 +181,7 @@
             // 
             // btnCrear
             // 
+            btnCrear.Anchor = AnchorStyles.Bottom;
             btnCrear.BackColor = Color.Green;
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -203,6 +215,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Red;
@@ -214,6 +227,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Top;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Red;
@@ -225,6 +239,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Red;
